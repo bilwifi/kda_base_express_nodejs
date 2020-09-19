@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const { check, validationResult } = require("express-validator");
 
 const server = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 server.use(bodyParser.urlencoded({ extended: false }));
 server.use(bodyParser.json());
@@ -78,10 +78,20 @@ const users = [
     estMarie: true,
     pays: "RDCongo",
   },
+  {
+    id: 7,
+    nom: "Wifi",
+    prenom: "Peniel",
+    email: "peniel.wifi@penieldialu.com",
+    poste: "Dev",
+    numeroTelephone: ["+243818855044"],
+    estMarie: true,
+    pays: "RDCongo",
+  },
 ];
 
 server.get("/", function (req, res) {
-  res.send("Bienvenu dans notre page");
+  res.send("ATELIER 19 sept 2020 | Deploiment ");
 });
 
 server.get("/api/users", (req, res) => {
